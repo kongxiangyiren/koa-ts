@@ -10,7 +10,8 @@ function getRouter() {
   let routeImport: string = '';
   let appUse: string = '';
   routes.forEach((item, index) => {
-    routeImport += `import ${'router' + index} from '${item.substring(0, item.length - 3)}';\n`;
+    let route = item.replace(item.substring(0, item.lastIndexOf('/src/routes')+11) , '../routes');
+    routeImport += `import ${'router' + index} from '${route.substring(0, route.length - 3)}';\n`;
     appUse += `app.use(${'router' + index}.routes())\n`;
   });
   const data = `
