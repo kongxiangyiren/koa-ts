@@ -5,9 +5,12 @@ import bodyParser from 'koa-bodyparser';
 import logger from 'koa-logger';
 import Static from 'koa-static';
 import config from './config/config';
-// import './config/console';
+
 import router from './config/route';
+import routerV from './config/route.vercel';
 import log4js from './plugins/log4js';
+
+const isDev = __filename.substring(__filename.lastIndexOf('.') + 1) === 'ts';
 
 async function run() {
   const app = new Koa();
@@ -47,7 +50,11 @@ async function run() {
   );
 
   // 加载路由
-  await router(app);
+  if (config.verel && !isDev) {
+    routerV(app);
+  } else {
+    await router(app);
+  }
 
   // 设置404
   app.use(async (ctx, next) => {
