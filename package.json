@@ -5,8 +5,8 @@
   "scripts": {
     "dev": "nodemon ./src/app.ts",
     "start": "ts-node ./src/app.ts",
-    "build": "ts-node ./vercel-router.ts && npm-run-all clean lint-fix && tsc",
-    "vercel-build":"npm-run-all build && node ./app/app.js",
+    "build:pro": "ts-node ./vercel-router.ts && npm-run-all clean lint-fix && tsc",
+    "vercel-build":"npm-run-all build:pro && node ./app/app.js",
     "lint": "eslint src/",
     "lint-fix": "eslint src/ --fix",
     "clean":"rimraf app/ logs/"
