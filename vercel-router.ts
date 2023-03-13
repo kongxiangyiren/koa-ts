@@ -6,11 +6,10 @@ function getRouter() {
   const routes = glob.sync(join(__dirname, './src/routes/**/*.ts'), {
     windowsPathsNoEscape: true
   });
-  console.log(routes);
-  let routeImport: string = '';
-  let appUse: string = '';
+  let routeImport = '';
+  let appUse = '';
   routes.forEach((item, index) => {
-    let route = item.replace(item.substring(0, item.lastIndexOf('/src/routes')+11) , '../routes');
+    const route = item.replace(item.substring(0, item.lastIndexOf('/src/routes') + 11), '../routes');
     routeImport += `import ${'router' + index} from '${route.substring(0, route.length - 3)}';\n`;
     appUse += `app.use(${'router' + index}.routes())\n`;
   });
