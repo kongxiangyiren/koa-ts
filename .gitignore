@@ -18,4 +18,3 @@ node_modules/
 
 app/
 .vercel
-src/config/route.vercel.ts
