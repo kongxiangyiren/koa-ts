@@ -5,11 +5,11 @@
   "scripts": {
     "dev": "nodemon ./src/app.ts",
     "start": "ts-node ./src/app.ts",
-    "build:pro": "ts-node ./vercel-router.ts && npm-run-all clean lint-fix && tsc",
-    "vercel-build":"npm-run-all build:pro && node ./app/app.js",
+    "build": "ts-node ./vercel-router.ts && npm-run-all clean lint-fix && tsc",
+    "vercel-build": "npm-run-all build && node ./index.cjs",
     "lint": "eslint src/",
     "lint-fix": "eslint src/ --fix",
-    "clean":"rimraf app/ logs/"
+    "clean": "rimraf app/ logs/ src/config/route.vercel.ts"
   },
   "dependencies": {
     "dayjs": "^1.11.7",
@@ -34,6 +34,7 @@
     "@types/node": "^18.15.0",
     "@typescript-eslint/eslint-plugin": "^5.54.1",
     "@typescript-eslint/parser": "^5.54.1",
+    "@vercel/node": "^2.9.12",
     "eslint": "^8.35.0",
     "eslint-config-prettier": "^8.7.0",
     "eslint-plugin-prettier": "^4.2.1",

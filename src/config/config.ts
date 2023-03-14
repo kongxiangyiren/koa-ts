@@ -1,4 +1,4 @@
 export default {
-  port: 8360,
+  port: 3000,
   verel: true
 };
