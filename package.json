@@ -6,11 +6,11 @@
     "postinstall": "ts-node ./vercel-router.ts",
     "dev": "nodemon ./src/app.ts",
     "start": "ts-node ./src/app.ts",
+    "start:pro":"node ./app/app.js",
     "build": "ts-node ./vercel-router.ts && npm-run-all clean lint-fix && tsc",
-    "vercel-build": "npm-run-all build && node ./index.cjs",
     "lint": "eslint src/",
     "lint-fix": "eslint src/ --fix",
-    "clean": "rimraf app/ logs/ src/config/route.vercel.ts"
+    "clean": "rimraf app/ logs/"
   },
   "dependencies": {
     "dayjs": "^1.11.7",
