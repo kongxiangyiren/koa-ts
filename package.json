@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
+    "postinstall": "ts-node ./vercel-router.ts",
     "dev": "nodemon ./src/app.ts",
     "start": "ts-node ./src/app.ts",
     "build": "ts-node ./vercel-router.ts && npm-run-all clean lint-fix && tsc",
