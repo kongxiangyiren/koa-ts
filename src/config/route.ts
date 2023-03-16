@@ -5,7 +5,7 @@ import { join } from 'path';
 
 export default async function router(app: import('koa')<DefaultState, DefaultContext>) {
   // 自动导入路由
-  const routes = glob.sync(join(__dirname, '../routes/**/*.ts'), {
+  const routes = glob.sync(join(__dirname, '../routes/**/*.{js,ts}'), {
     windowsPathsNoEscape: true
   });
 
